@@ -46,11 +46,15 @@ The data, however, suffers from **inconsistencies and corruption**. This data co
         - "price" column from the products table - _affects 3.58%_ of the rows --> **Dropped!**
         - "promo price" column from the products table - _affects 43.64%_ of the rows --> **Cleaned using the following two assumptions** (also see code here)
             * **Assumption 1:** Price column is correctly specified
-            * **Assumption 2:** Negative discounts (<-1) are not possible
+            * **Assumption 2:** Negative discounts (<-1) are not possible (discount = price-promo price)
     - Orderlines table
         - "unit price" column from the  - _affects 12.3%_ of the rows --> **Dropped!**
 - Typical issue of duplicates/missing values/outliers --> **Dropped!**
 
 ## First results
-It turned out that unit prices and cleaned promo prices share a close resemblance. To show this formally, I plot the distribution of both prices in the following plot. 
-![Image here](assets/distribution_cleaned_promo_price.png)
+It turned out that the cleaning of promo prices worked out well. The following plot shows that promo prices share a close resemblance with unit prices. 
+
+![Image here](/assets/distribution_cleaned_promo_price.png)
+
+
+### **As the *unit price* (which sales department obtains) is conceptually different from the *promotional price* (which the marketing department offered), we continue discount calculation using the promotional price.** 

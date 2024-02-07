@@ -53,4 +53,4 @@ The data, however, suffers from **inconsistencies and corruption**. This data co
 
 ## First results
 It turned out that unit prices and cleaned promo prices share a close resemblance. To show this formally, I plot the distribution of both prices in the following plot. 
-![](assets/distribution_cleaned_promo_price.png)
+![Image here](assets/distribution_cleaned_promo_price.png)

@@ -40,12 +40,14 @@ The data consists of 4 data files. Here’s a description of each table and its 
     - long – brand name
 
 ## Issues
-The data, however, suffers from inconsistencies. **This data corruption hinders the discounts computation --> obstacle to settling the debate...!** 
-- Corrupted numerical columns with 2 dots in them. The columns are listed below
-    - "price" column from the products table - _affects 3.58%_ of the rows --> **Dropped!**
-    - "promo price" column from the products table - _affects 43.64%_ of the rows --> **Cleaned using the following two assumptions** (also see code here)
-        - **Assumption 1:** Price column is correctly specified
-        - **Assumption 2:** Negative discounts (<-1) are not possible
-    - "unit price" column from the orderlines table - _affects 12.3%_ of the rows --> **Dropped!**
+The data, however, suffers from **inconsistencies and corruption**. This data corruption hinders the computation of discounts --> obstacle to settling the debate...! 
+- Corrupted numerical columns with **2 dots** in them. The columns per table are listed below
+    - Products table
+            - "price" column from the products table - _affects 3.58%_ of the rows --> **Dropped!**
+            - "promo price" column from the products table - _affects 43.64%_ of the rows --> **Cleaned using the following two assumptions** (also see code here)
+                - **Assumption 1:** Price column is correctly specified
+                - **Assumption 2:** Negative discounts (<-1) are not possible
+    - Orderlines table
+            - "unit price" column from the  - _affects 12.3%_ of the rows --> **Dropped!**
 - Typical issue of duplicates/missing values/outliers --> **Dropped!**
 

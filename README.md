@@ -54,7 +54,7 @@ The data, however, suffers from **inconsistencies and corruption**. This data co
 ## First results
 It turned out that the cleaning of promo prices worked out well. The following plot shows that promo prices share a close resemblance with unit prices. 
 
-![Image here](/assets/distribution_cleaned_promo_price.png)
+![Image here](/images/distribution_cleaned_promo_price.png)
 
 
 ### **As the *unit price* (which sales department obtains) is conceptually different from the *promotional price* (which the marketing department offered), we continue discount calculation using the promotional price.** 

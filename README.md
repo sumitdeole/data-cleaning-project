@@ -15,10 +15,10 @@ The data consists of 4 data files. Here’s a description of each table and its 
     - total_paid – the total amount paid by the customer for this order, in euros
     - state - order states
         - “Shopping basket” – products have been placed in the shopping basket
-        - “Place Order” – the order has been placed, but is awaiting shipment details
+        - “Place Order” – the order has been placed but is awaiting shipment details
         - “Pending” – the order is awaiting payment confirmation
         - “Completed” – the order has been placed and paid, and the transaction is completed.
-        - “Cancelled” – the order has been cancelled and the payment returned to the customer.
+        - “Cancelled” – the order has been canceled and the payment returned to the customer.
 - **orderlines.csv** – Every row represents each one of the different products involved in an order.
     - id – a unique identifier for each row in this file
     - id_order – corresponds to orders.order_id
@@ -43,11 +43,14 @@ The data consists of 4 data files. Here’s a description of each table and its 
 The data, however, suffers from **inconsistencies and corruption**. This data corruption hinders the computation of discounts --> obstacle to settling the debate...! 
 - Corrupted numerical columns with **2 dots** in them. The columns per table are listed below
     - Products table
-            - "price" column from the products table - _affects 3.58%_ of the rows --> **Dropped!**
-            - "promo price" column from the products table - _affects 43.64%_ of the rows --> **Cleaned using the following two assumptions** (also see code here)
-                - **Assumption 1:** Price column is correctly specified
-                - **Assumption 2:** Negative discounts (<-1) are not possible
+        - "price" column from the products table - _affects 3.58%_ of the rows --> **Dropped!**
+        - "promo price" column from the products table - _affects 43.64%_ of the rows --> **Cleaned using the following two assumptions** (also see code here)
+            * **Assumption 1:** Price column is correctly specified
+            * **Assumption 2:** Negative discounts (<-1) are not possible
     - Orderlines table
-            - "unit price" column from the  - _affects 12.3%_ of the rows --> **Dropped!**
+        - "unit price" column from the  - _affects 12.3%_ of the rows --> **Dropped!**
 - Typical issue of duplicates/missing values/outliers --> **Dropped!**
 
+## First results
+It turned out that unit prices and cleaned promo prices share a close resemblance. To show this formally, I plot the distribution of both prices in the following plot. 
+![](assets/distribution_cleaned_promo_price.png)
